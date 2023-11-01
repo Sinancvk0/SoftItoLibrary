@@ -3,6 +3,9 @@ using Data.Abstract;
 using Entity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SoftItoLibraryProject.Models;
+using System.Net;
+
 
 namespace SoftItoLibraryProject.Controllers
 {
@@ -26,21 +29,8 @@ namespace SoftItoLibraryProject.Controllers
 
             return View(users);
         }
-        [HttpGet]
-        public IActionResult AddUser()
-        {
+       
 
-            return View();
-        }
-        [HttpPost]
-        public IActionResult AddUser(User user ,Adrress adrress)
-        {
-            _context.Users.Add(user);
-            _context.Adrresses.Add(adrress);
-            return RedirectToAction("Index");
-
-     
-        }
 
 
     }
