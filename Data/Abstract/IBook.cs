@@ -9,5 +9,6 @@ namespace Data.Abstract
 {
     public interface IBook:IGeneric<Book>
     {
+
     }
 }
