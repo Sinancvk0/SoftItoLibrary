@@ -1,0 +1,35 @@
+﻿@model Entity.User
+@{
+    ViewData["Title"] = "AddUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+
+
+}
+
+<h1>Yeni Üye Ekleme</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label>TCKN</label>
+        <input type="text" asp-for="NationalId" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>İsim Soyisim</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" asp-for="EMail" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Telefon</label>
+        <input type="text" asp-for="Phone" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Doğum Tarihi</label>
+        <input type="text" asp-for="DateOfBirth" class="form-control" />
+    </div>
+
+</form>

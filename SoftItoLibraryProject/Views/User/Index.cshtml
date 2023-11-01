@@ -1,0 +1,39 @@
+﻿@using Entity
+@model List<User>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>TCKN</th>
+        <th>İsim</th>
+        <th>Telefon</th>
+        <th>Ülke</th>
+        <th>Şehir</th>
+        <th>İlçe</th>
+        <th>Adres</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.NationalId</td>
+            <td>@item.Name</td>
+            <td>@item.Phone</td>
+            <td>@item.Adrress.District.City.Country.Name</td>
+            <td>@item.Adrress.District.City.Name</td>
+            <td>@item.Adrress.District.Name</td>
+            <td>@item.Adrress.Name</td>
+            <td><a href="#"class="btn btn-danger">Sil</a></td>
+            <td><a href="#" class="btn btn-info">Güncelle</a></td>
+        </tr>
+    }
+    
+</table>
+<a href="#" class="btn btn-outline-primary">Yeni Üye Ekle </a>
