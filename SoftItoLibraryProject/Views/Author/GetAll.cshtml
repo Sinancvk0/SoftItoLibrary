@@ -1,38 +1,56 @@
 ﻿@using Entity
 @model List<Author>
+
 @{
     ViewData["Title"] = "GetAll";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<table class="table table-bordered">
-    <tr>
-        <th>Id</th>
-        <th>İsim</th>
-        <th>Kayıt Tarihi</th>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.10/css/jquery.dataTables.min.css">
+<script src="https://cdn.datatables.net/1.11.10/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.11.5/sorting/datetime-moment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
-        <th>Sil</th>
-        <th>Güncelle</th>
-    </tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>@item.Id</td>
-            <td>@item.Name</td>
-            <td>@item.DataCreate</td>
+<h2>Yazarlar</h2>
+<br />
+<a href="#" class="btn btn-primary">Yeni Yazar Ekle </a>
 
-            <td><a href="#" class="btn btn-danger">Sil</a></td>
-            <td><a href="#" class="btn btn-info">Güncelle</a></td>
+<br />
+<br />
+<table id="dataTable"  class="table table-bordered">
+    <thead>
+        <tr style="background-color:black ; color:white;">
+            <th>Id</th>
+            <th>İsim</th>
+            <th>Kayıt Tarihi</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
         </tr>
-    }
-
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.DataCreate.ToString("yyyy-MM-dd ")</td>
+                <td><a href="#" class="btn btn-danger">Sil</a></td>
+                <td><a href="#" class="btn btn-info">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
 </table>
-<a href="#" class="btn btn-outline-primary">Yeni Yazar Ekle </a>
 
 
-
-
-
-
-
-
+<script>
+    $(document).ready(function () {
+        $('#dataTable').DataTable({
+            "order": [[2, 'asc']], // Tarih sütununa göre sıralama
+            "columnDefs": [
+                { "type": "date", "targets": 2 },
+                { "orderable": false, "targets": [3, 4] } // Sil ve Güncelle sütunları sıralanamaz
+            ]
+        });
+    });
+</script>

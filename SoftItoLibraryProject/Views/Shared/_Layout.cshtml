@@ -40,18 +40,18 @@
                     <div class="navbar-brand-box">
                         <a asp-controller="Home" asp-action="Index" class="logo logo-dark">
                             <span class="logo-sm">
-                                <img src="~/dist/assets/images/logo-sm.png" alt="" height="22">
+                                <img src="~/dist/assets/images/kb.png" alt="" height="22">
                             </span>
                             <span class="logo-lg">
-                                <img src="~/dist/assets/images/logo-dark.png" alt="" height="20">
+                                <img src="~/dist/assets/images/kb.png" alt="" height="20">
                             </span>
                         </a>
                         <a asp-controller="Home" asp-action="Index" class="logo logo-light">
                             <span class="logo-sm">
-                                <img src="~/dist/assets/images/logo-sm.png" alt="" height="22">
+                                <img src="~/dist/assets/images/kb.png" alt="" height="22">
                             </span>
                             <span class="logo-lg">
-                                <img src="~/dist/assets/images/logo-light.png" alt="" height="20">
+                                <img src="~/dist/assets/images/kb.png" alt="" height="20">
                             </span>
                         </a>
                     </div>
@@ -63,8 +63,8 @@
                     <!-- App Search-->
                     <form class="app-search d-none d-lg-block">
                         <div class="position-relative">
-                            <input type="text" class="form-control" placeholder="Search...">
-                            <span class="uil-search"></span>
+                            <input type="text" class="form-control">
+                       
                         </div>
                     </form>
                 </div>
@@ -119,19 +119,19 @@
             <div class="navbar-brand-box">
                 <a asp-controller="Home" asp-action="Index" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="~/dist/assets/images/logo-sm.png" alt="" height="22">
+                        <img src="~/dist/assets/images/kb.png" alt="" height="75">
                     </span>
                     <span class="logo-lg">
-                        <img src="~/dist/assets/images/logo-dark.png" alt="" height="20">
+                        <img src="~/dist/assets/images/kb.png" alt="" height="75">
                     </span>
                 </a>
 
                 <a asp-controller="Home" asp-action="Index" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="~/dist/assets/images/logo-sm.png" alt="" height="22">
+                        <img src="~/dist/assets/images/kb.png" alt="" height="75">
                     </span>
                     <span class="logo-lg">
-                        <img src="~/dist/assets/images/logo-light.png" alt="" height="20">
+                        <img src="~/dist/assets/images/kb.png" alt="" height="100">
                     </span>
                 </a>
             </div>
@@ -155,13 +155,13 @@
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="uil-window-section"></i>
-                                <span>Ürün Yönetimi</span>
+                                <span>Kitap Yönetimi</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="true">
-                                <li><a asp-controller="Book" asp-action="Index">Kitaplar</a></li>
-                                <li><a asp-controller="Author" asp-action="Index">Yazarlar</a></li>
-                                <li><a asp-controller="Publisher" asp-action="Index">Yayınevleri</a></li>
-                                <li><a asp-controller="Category" asp-action="Index">Kategoriler</a></li>
+                                <li><a asp-controller="Book" asp-action="GetAll">Kitaplar</a></li>
+                                <li><a asp-controller="Author" asp-action="GetAll">Yazarlar</a></li>
+                                <li><a asp-controller="Publisher" asp-action="GetAll">Yayınevleri</a></li>
+                                <li><a asp-controller="Category" asp-action="GetAll">Kategoriler</a></li>
                             </ul>
                         </li>
                     </ul>
