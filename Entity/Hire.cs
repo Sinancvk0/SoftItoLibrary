@@ -12,11 +12,11 @@ namespace Entity
 
         public int UserId { get; set; }
  
-        public DateTime StartingDate { get; set; }
+        public DateTime StartingDate { get; set; }= DateTime.Now;
         public DateTime EndDate { get; set; }
         public string? Description { get; set; }
-        public  int BarcodeId { get; set; }
-        public BookBarcode bookBarcode { get; set; }
+        public bool isActive { get; set; }
+        public List< BookBarcode> BookBarcodes { get; set; }
      
 
     }

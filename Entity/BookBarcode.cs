@@ -14,8 +14,8 @@ namespace Entity
 
         public int BarcodeNo { get; set; }
 
-        public int HireId { get; set; }
-        public Hire Hire { get; set; }
+   
+        public List<Hire> Hire { get; set; }
 
     }
 }

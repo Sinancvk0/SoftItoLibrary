@@ -12,9 +12,9 @@
 <script src="https://cdn.datatables.net/plug-ins/1.11.5/sorting/datetime-moment.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
-<h2>YayınEvleri</h2>
+<h2>Kitaplar</h2>
 <br />
-<a href="#" class="btn btn-primary">Yeni YayınEvi Ekle </a>
+<a href="#" class="btn btn-primary">Yeni Kitap Ekle </a>
 
 <br />
 <br />
@@ -30,8 +30,8 @@
             <th>Yayın Yılı</th>
             <th>Yazar</th>
             <th>YayınEvi</th>
-
-
+            <th>Kopya Sayısı</th>
+            <th>Kopya</th>
             <th>Sil</th>
             <th>Güncelle</th>
         </tr>
@@ -49,6 +49,8 @@
                 <th>@item.PublicationDate</th>
                 <td>@string.Join(", ", item.Authors.Select(c => c.Name))</td>
                 <td>@string.Join(", ", item.Publishers.Select(c => c.Name))</td>
+                <th>@item.TotalCopy</th>
+                <td><a href="#" class="btn btn-success">Kopya</a></td>
                 <td><a href="#" class="btn btn-danger">Sil</a></td>
                 <td><a href="#" class="btn btn-info">Güncelle</a></td>
             </tr>
