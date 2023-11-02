@@ -1,68 +1,36 @@
-﻿
+﻿@using Entity
+@model List<Category>
 @{
     ViewData["Title"] = "GetAll";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
 
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>İsim</th>
+        <th>Kayıt Tarihi</th>
+        
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.DataCreate</td>
+    
+            <td><a href="#"class="btn btn-danger">Sil</a></td>
+            <td><a href="#" class="btn btn-info">Güncelle</a></td>
+        </tr>
+    }
+    
+</table>
+<a href="#" class="btn btn-outline-primary">Yeni Kategori Ekle </a> 
 
-<div>
-	<div class="card">
-		<div class="card-header  text-white bg-success bg-gradient">
-			<span class="fs-4">Kategori Listesi</span>
-			<a href="#" id="btnEkle" class="btn btn-warning ms-2">Kategori Ekle</a>
-		</div>
-		<div class="card-body">
-			<table id="tblCategory" class="table table-bordered table-striped" style="width:100%">
-				<thead>
-					<tr>
-						<th>Guid</th>
-						<th>Kategori Adı</th>
-
-						<th>Oluşturulma Tarihi</th>
-						<th>İşlemler</th>
-					</tr>
-				</thead>
-
-			</table>
-
-		</div>
-	</div>
-</div>
-@section Scripts{
-	<script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-	<script>
-		var DataTable;
-		$(document).ready(function () {
-
-			DataTable = $('#tblCategory').DataTable({
-
-				ajax: '/Category/GetAll/',
-				columns: [
-
-					{ data: 'id' },
-					{ data: 'name' },
-					{ data: 'dateCreated' },
-					{
-						data: 'id', render: function (data) {
-							return `<a href="#" onclick="deleteCategory('${data}')" class="btn btn-sm btn-danger">Sil</a>
-																				<a href="#" onclick="editCategory('${data}')" class="btn btn-sm btn-primary">Düzenle</a>
-																   `
-						}
-					}
-
-
-				]
-
-			})
-
-
-		})
-
-
-
-	</script>
-}
 
 
 
