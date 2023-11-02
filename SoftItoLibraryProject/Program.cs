@@ -9,6 +9,7 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IUser, EfUser>();
+builder.Services.AddScoped<IBook, EfBook>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

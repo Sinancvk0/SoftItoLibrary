@@ -7,18 +7,18 @@ namespace SoftItoLibraryProject.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly AppDbContext _db;
+        private readonly AppDbContext _context;
       
         public CategoryController(AppDbContext db)
         {
-            _db = db;
+			_context = db;
        
         }
 
         public IActionResult GetAll()
         {
-             var value=_db.Categories.ToList();
-            return Json(value);
+            var value= _context.Categories.ToList();
+            return View(value);
         }
     }
 }

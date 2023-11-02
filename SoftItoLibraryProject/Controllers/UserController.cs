@@ -17,7 +17,7 @@ namespace SoftItoLibraryProject.Controllers
         public UserController(IUser user, AppDbContext context)
         {
             _user = user;
-            _context = context;
+            _context = context;     
         }
 
         public IActionResult Index()
