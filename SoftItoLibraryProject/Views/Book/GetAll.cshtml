@@ -1,1 +1,70 @@
-﻿
+﻿@using Entity
+@model List<Book>
+
+@{
+    ViewData["Title"] = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.10/css/jquery.dataTables.min.css">
+<script src="https://cdn.datatables.net/1.11.10/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.11.5/sorting/datetime-moment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+<h2>YayınEvleri</h2>
+<br />
+<a href="#" class="btn btn-primary">Yeni YayınEvi Ekle </a>
+
+<br />
+<br />
+<table id="dataTable" class="table table-bordered">
+    <thead>
+        <tr style="background-color:black ; color:white;">
+            <th>Id</th>
+            <th>Kategori</th>
+            <th>Adı</th>
+            <th>ISBN</th>
+            <th>Sayfa</th>
+            <th>Dil</th>
+            <th>Yayın Yılı</th>
+            <th>Yazar</th>
+            <th>YayınEvi</th>
+
+
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@string.Join(", ", item.Categories.Select(c => c.Name))</td>
+                <td>@item.Name</td>
+                <td>@item.ISBN</td>
+                <td>@item.TotalPages</td>
+                <td>@item.Language</td>
+                <th>@item.PublicationDate</th>
+                <td>@string.Join(", ", item.Authors.Select(c => c.Name))</td>
+                <td>@string.Join(", ", item.Publishers.Select(c => c.Name))</td>
+                <td><a href="#" class="btn btn-danger">Sil</a></td>
+                <td><a href="#" class="btn btn-info">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<script>
+    $(document).ready(function () {
+        $('#dataTable').DataTable({
+            "order": [[2, 'asc']],
+            "columnDefs": [
+                { "type": "date", "targets": 2 },
+                { "orderable": false, "targets": [3, 4] }
+            ]
+        });
+    });
+</script>

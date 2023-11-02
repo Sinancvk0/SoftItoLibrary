@@ -19,11 +19,15 @@ namespace SoftItoLibraryProject.Controllers
 
         public IActionResult GetAll()
         {
-            var book =_context.Books.Include(book=>book.Categories).Include(book=>book.Authors).Include(book=>book.Publishers).ToList();    
+            var books = _context.Books
+                .Include(book => book.Categories) 
+                .Include(book => book.Authors)   
+                .Include(book => book.Publishers).ToList();
+           
 
-            return View(book);  
+            return View(books);
         }
 
-        
+
     }
 }

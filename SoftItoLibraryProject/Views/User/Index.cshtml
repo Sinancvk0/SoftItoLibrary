@@ -7,33 +7,65 @@
 }
 
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.10/css/jquery.dataTables.min.css">
+<script src="https://cdn.datatables.net/1.11.10/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.11.5/sorting/datetime-moment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
-<table class="table table-bordered">
-    <tr>
-        <th>TCKN</th>
-        <th>İsim</th>
-        <th>Telefon</th>
-        <th>Ülke</th>
-        <th>Şehir</th>
-        <th>İlçe</th>
-        <th>Adres</th>
-        <th>Sil</th>
-        <th>Güncelle</th>
-    </tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>@item.NationalId</td>
-            <td>@item.Name</td>
-            <td>@item.Phone</td>
-            <td>@item.Adrress.District.City.Country.Name</td>
-            <td>@item.Adrress.District.City.Name</td>
-            <td>@item.Adrress.District.Name</td>
-            <td>@item.Adrress.Name</td>
-            <td><a href="#"class="btn btn-danger">Sil</a></td>
-            <td><a href="#" class="btn btn-info">Güncelle</a></td>
+
+
+<h2>Üyeler</h2>
+<br />
+<a href="#" class="btn btn-primary">Yeni Üye Ekle </a>
+
+<br />
+<br />
+<table id="dataTable" class="table table-bordered">
+    <thead>
+        <tr style="background-color:black ; color:white;">
+            <th>TCKN</th>
+            <th>İsim</th>
+            <th>Telefon</th>
+            <th>Ülke</th>
+            <th>Şehir</th>
+            <th>İlçe</th>
+            <th>Adres</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Kiralamalar</th>
+
+
         </tr>
-    }
-    
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.NationalId</td>
+                <td>@item.Name</td>
+                <td>@item.Phone</td>
+                <td>@item.Adrress.District.City.Country.Name</td>
+                <td>@item.Adrress.District.City.Name</td>
+                <td>@item.Adrress.District.Name</td>
+                <td>@item.Adrress.Name</td>
+                <td><a href="#" class="btn btn-danger">Sil</a></td>
+                <td><a href="#" class="btn btn-info">Güncelle</a></td>
+                <td><a href="#" class="btn btn-success">Kiralamalar</a></td>
+            </tr>
+        }
+    </tbody>
 </table>
-<a href="/User/Create/" class="btn btn-outline-primary">Yeni Üye Ekle </a>
+
+
+<script>
+    $(document).ready(function () {
+        $('#dataTable').DataTable({
+            "order": [[2, 'asc']],
+            "columnDefs": [
+                { "type": "date", "targets": 2 },
+                { "orderable": false, "targets": [3, 4] }
+            ]
+        });
+    });
+</script>
